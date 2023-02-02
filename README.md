@@ -16,7 +16,7 @@ A Java program that uses Selenium to automate the process of searching for an ev
 
 - Java Development Kit (JDK) - You can download the latest version from the official website.
 - An Integrated Development Environment (IDE) - You can use popular IDEs such as Eclipse or IntelliJ IDEA.
-- Selenium WebDriver - You can download the Selenium WebDriver Jars from the official website.
+- Selenium WebDriver - You can download the Selenium WebDriver Jars from the official website (https://www.selenium.dev).
 - ChromeDriver - You need to download the ChromeDriver executable that matches your installed version of Google Chrome.
 
 ##### To run the project:
