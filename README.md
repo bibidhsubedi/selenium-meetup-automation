@@ -1,4 +1,4 @@
-## Meetup Event
+## Automating Meetup.com functionalities using Selenium
 
 A Java program that uses Selenium to automate the process of searching for an event on Meetup.com and capturing details about the selected event.
 
