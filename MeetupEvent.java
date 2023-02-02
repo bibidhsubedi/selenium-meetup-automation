@@ -43,6 +43,11 @@ public class MeetupEvent {
 		// Go to Meetup.com
 		driver.get("https://www.meetup.com/");
 	}
+	
+	private static void enterKeyword(String keyword) {
+		// Locate the search bar
+		driver.findElement(By.id("search-keyword-input")).sendKeys(keyword);
+	}
 
 	private static void enterLocation(String location) {
 		// Input a location
@@ -57,11 +62,6 @@ public class MeetupEvent {
 
 		// Press the enter key
 		driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys(Keys.RETURN);
-	}
-
-	private static void enterKeyword(String keyword) {
-		// Locate the search bar
-		driver.findElement(By.id("search-keyword-input")).sendKeys(keyword);
 	}
 
 	private static void pressSearch() {
