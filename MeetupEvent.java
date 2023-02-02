@@ -35,6 +35,7 @@ public class MeetupEvent {
 		// Set the path to the ChromeDriver executable
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\bibid\\Desktop\\Selenium Drivers\\chromedriver_win32\\chromedriver.exe");
+		
 		// Launch the GoogleChrome browser
 		driver = new ChromeDriver();
 	}
@@ -76,15 +77,14 @@ public class MeetupEvent {
 
 	private static void captureEventDetails() {
 		// Capture the event details
-		eventName = driver
-				.findElement(By.cssSelector(".overflow-ellipsis.overflow-hidden.text-3xl.font-bold.leading-snug"))
-				.getText();
+		eventName = driver.findElement(By.cssSelector(".overflow-ellipsis.overflow-hidden.text-3xl.font-bold.leading-snug")).getText();
 		hostName = driver.findElement(By.cssSelector(".font-medium")).getText();
 		eventTime = driver.findElement(By.cssSelector("time")).getText();
 		eventLocation = driver.findElement(By.cssSelector("a[data-testid='venue-name-link']")).getText();
 	}
 
 	private static void writeEventDetailsToFile() {
+		//Write event details to a notepad file
 		try {
 			FileWriter fileWriter = new FileWriter("event_details.txt");
 			fileWriter.write("Event Name: " + eventName + System.lineSeparator());
@@ -92,12 +92,14 @@ public class MeetupEvent {
 			fileWriter.write("Event Time: " + eventTime + System.lineSeparator());
 			fileWriter.write("Event Location: " + eventLocation + System.lineSeparator());
 			fileWriter.close();
+		//Prints error message if any error exists
 		} catch (IOException e) {
 			System.out.println("Error writing to file: " + e.getMessage());
 		}
 	}
 
 	private static void waitForFiveSeconds() {
+		//Pauses for 5 seconds and catches any interrupted exceptions
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -106,7 +108,7 @@ public class MeetupEvent {
 	}
 
 	private static void closeBrowser() {
+		//Close the browser
 		driver.quit();
 	}
-
 }
