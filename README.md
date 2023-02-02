@@ -7,7 +7,7 @@ A Java program that uses Selenium to automate the process of searching for an ev
 2. Navigate to Meetup.com.
 3. Input a keyword and a location to search for events.
 4. Press the search button.
-5. Select the first event in the search results.
+5. Select the event in the search results.
 6. Capture the event name, host name, event time, and event location.
 7. Write the captured event details to a file named event_details.txt.
 8. Close the browser.
