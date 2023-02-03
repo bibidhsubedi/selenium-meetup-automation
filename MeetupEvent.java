@@ -67,12 +67,12 @@ public class MeetupEvent {
 
 	private static void pressSearch() {
 		// Click the Search button
-		driver.findElement(By.xpath("//*[@id='page']/div[2]/main/div[1]/div[4]/div[1]/form/div[2]/input")).click();
+		driver.findElement(By.cssSelector("input[data-testid=search-submit]")).click();
 	}
 
 	private static void selectEvent() {
 		// Select the first event
-		driver.findElement(By.xpath("//h2[@class='text-gray7 font-medium text-base pt-0 pb-1 line-clamp-3']")).click();
+		driver.findElement(By.cssSelector("h2.text-gray7.font-medium.text-base.pt-0.pb-1.line-clamp-3")).click();
 	}
 
 	private static void captureEventDetails() {
