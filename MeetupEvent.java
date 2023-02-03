@@ -56,7 +56,7 @@ public class MeetupEvent {
 
 		// Wait for the location list to load
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@role='listbox']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#location-typeahead-searchLocation-menu")));
 
 		// Press the down arrow key once
 		driver.findElement(By.id("location-typeahead-searchLocation")).sendKeys(Keys.ARROW_DOWN);
