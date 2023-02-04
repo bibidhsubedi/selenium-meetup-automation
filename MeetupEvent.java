@@ -77,6 +77,7 @@ public class MeetupEvent {
 	}
 	
 	private static void waitForSearchResults() {
+		// Wait until the events are loaded
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h2.text-gray7.font-medium.text-base.pt-0.pb-1.line-clamp-3")));
 	}
