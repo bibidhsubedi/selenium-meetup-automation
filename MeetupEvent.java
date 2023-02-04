@@ -20,14 +20,11 @@ public class MeetupEvent {
 	public static void main(String[] args) {
 		launchBrowser();
 		goToMeetup();
-		enterKeyword("tennis");
-		enterLocation("Brisbane");
-		pressSearch();
-		waitForFiveSeconds();
+                searchForEvent("tennis", "Brisbane");
+		waitForSearchResults();
 		selectEvent();
 		captureEventDetails();
 		writeEventDetailsToFile();
-		waitForFiveSeconds();
 		closeBrowser();
 	}
 
@@ -38,11 +35,20 @@ public class MeetupEvent {
 		
 		// Launch the GoogleChrome browser
 		driver = new ChromeDriver();
+		
+		//Maximize the browser window
+		driver.manage().window().maximize();
 	}
 
 	private static void goToMeetup() {
 		// Go to Meetup.com
 		driver.get("https://www.meetup.com/");
+	}
+	
+	private static void searchForEvent(String keyword, String location) {
+		enterKeyword(keyword);
+		enterLocation(location);
+		pressSearch();
 	}
 	
 	private static void enterKeyword(String keyword) {
@@ -68,6 +74,11 @@ public class MeetupEvent {
 	private static void pressSearch() {
 		// Click the Search button
 		driver.findElement(By.cssSelector("input[data-testid=search-submit]")).click();
+	}
+	
+	private static void waitForSearchResults() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h2.text-gray7.font-medium.text-base.pt-0.pb-1.line-clamp-3")));
 	}
 
 	private static void selectEvent() {
@@ -98,17 +109,9 @@ public class MeetupEvent {
 		}
 	}
 
-	private static void waitForFiveSeconds() {
-		//Pauses for 5 seconds and catches any interrupted exceptions
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
 	private static void closeBrowser() {
 		//Close the browser
 		driver.quit();
 	}
+	
 }
